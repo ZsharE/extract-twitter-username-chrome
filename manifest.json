@@ -24,5 +24,8 @@
       "js": ["jquery-2.1.1.min.js", "content.js"]
     }
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "manifest_version": 3
 }
