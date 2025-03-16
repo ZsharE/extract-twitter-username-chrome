@@ -19,7 +19,7 @@ function extractTwitterUsernames() {
       }
     });
     
-    $("a[href*='twitter'], a[href*='x']").each(function(index, link) {
+    $("a[href*='twitter' i], a[href*='x' i]").each(function(index, link) {
       var url = this.href;
       var usernameMatch = decodeURIComponent(url).match(/(twitter\.com|\/x\.com)\/(?:@){0,1}(\w*)/);
 
