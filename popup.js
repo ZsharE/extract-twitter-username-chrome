@@ -20,18 +20,14 @@ $(function() {
 
     chrome.tabs.sendMessage(tab.id, { action: "getTwitterUsernames" }, (response) => {
       if (chrome.runtime.lastError) return;
-
-      console.log(response && response.usernames);
-
       if (response && response.usernames && response.usernames.length > 0) {
-        copyToClipboard(response.usernames[0]);
         response.usernames.forEach(function(username) {
-          $("#usernames").append("<li><span class='icon'><img src='" + icons[username.icon] + "' alt='" + username.icon + "'></span><span>" + username.name + "</span><button>Copy</button></li>");
+          $("#usernames").append("<li><span class='icon'><img src='" + icons[username.icon] + "' alt='" + username.icon + "'></span><span class='username'>" + username.name + "</span><button>Copy</button></li>");
         });
 
         // copy button event listener
         $('#usernames').on("click", "li button", function(e) {
-          copyToClipboard(e.target.parentElement.querySelector('span').innerText);
+          copyToClipboard(e.target.parentElement.querySelector('span.username').innerText);
         });
       } else {
         $("#usernames").append("<li>Not found</li>");

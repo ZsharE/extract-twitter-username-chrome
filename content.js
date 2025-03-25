@@ -61,7 +61,7 @@ function extractTwitterUsernames() {
 
     $("a[href*='bsky.app' i]").each(function(index, link) {
       var url = this.href;
-      var usernameMatch = decodeURIComponent(url).match(/(bsky\.app)\/{0,1}(\w*)\/{0,1}(\w*\.\w*)/);
+      var usernameMatch = decodeURIComponent(url).match(/(bsky\.app)\/{0,1}(\w*)\/{0,1}([\s\S]*)/);
 
       if (usernameMatch !== null && usernameMatch[3] !== "") {
         result.push({ name: usernameMatch[3], icon: "bluesky" });
