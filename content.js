@@ -63,7 +63,7 @@ function extractTwitterUsernames() {
       var url = this.href;
       var usernameMatch = decodeURIComponent(url).match(/(bsky\.app)\/{0,1}(\w*)\/{0,1}([^\/]*)/);
 
-      if (usernameMatch !== null && usernameMatch[3] !== "") {
+      if (usernameMatch !== null && usernameMatch[3] !== "" && usernameMatch[2] !== "intent" && usernameMatch[3].includes("compose") === false) {
         result.push({ name: usernameMatch[3], icon: "bluesky" });
         return;
       }
